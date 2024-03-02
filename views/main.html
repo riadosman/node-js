@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1>Hello for Backend Documention</h1>
+    <div>
+      <h4>/article</h4>
+      <pre>
+        const newArticle = new Article();
+        // came from postman
+        const artTitle = request.body.articleTitle;
+        const artBody = request.body.articleBody;
+        
+        newArticle.title = artTitle;
+        newArticle.body = artBody;
+        newArticle.numberOfLikes = 0;
+        await newArticle.save(); // async return promise
+        response.json({
+          artTitle: artTitle,
+          artBody: artBody,
+        });
+            </pre
+      >
+    </div>
+    <div>
+      <h4>/get_articles</h4>
+      <pre>
+        // get all articles
+  const Articles = await Article.find();
+  response.json(Articles);
+            </pre
+      >
+    </div>
+    <div>
+      <h4>/get_article/:articleId</h4>
+      <pre>
+        const id = request.params.articleId;
+  // get one article
+  const article = await Article.findById(id);
+  response.json(article);
+            </pre
+      >
+    </div>
+    <div>
+      <h4>/get_article/:articleId</h4>
+      <pre>
+        const id = request.params.articleId;
+  // delete from database
+  const article = await Article.findByIdAndDelete(id);
+  response.json(article);
+            </pre
+      >
+    </div>
+    <div>
+      <h4>/showArticles</h4>
+      <pre>
+        const Articles = await Article.find();
+        response.render('articles.ejs',{
+          allArticles: Articles
+        })
+            </pre
+      >
+    </div>
+    <div>
+      <h4>/render_ejs_file</h4>
+      <pre>
+        const data = "this data come from backend";
+        // views folder is default uses in directory and next line mean views/number.ejs file
+        response.render("numbers.ejs", {
+          // here we send the data to html file
+          name: data,
+        });
+            </pre
+      >
+    </div>
+    <div>
+      <h4>/return_html_file</h4>
+      <pre>
+        response.sendFile(__dirname + "/views/numbers.html");
+            </pre
+      >
+    </div>
+    <div>
+      <h4>/return_html</h4>
+      <pre>
+        response.send("<h1>return html this is h1 tag  </h1>");
+
+            </pre>
+    </div>
+    <div>
+      <h4>/return_json</h4>
+      <pre>
+        response.send("<h1>hi</h1>");
+        // for return json in response
+        response.json({
+          name: request.body.name,
+          language: "arabic",
+        });
+            </pre
+      >
+    </div>
+    <div>
+      <h4>/send_query_param</h4>
+      <pre>
+        // localhost:3000/send_query_param?query1=text
+        console.log(request.query.query1);
+        response.send("<h1>hi</h1>");
+            </pre
+      >
+    </div>
+    <div>
+      <h4>/find_name_body_param</h4>
+      <pre>
+        console.log(request.body);
+        response.send(`this is body params ${name}`);
+            </pre
+      >
+    </div>
+    <div>
+      <h4>/findsum/:num1/:num2</h4>
+      <pre>
+        //  path params
+        const number1 = request.params.num1;
+        const number2 = request.params.num2;
+        console.log(request.params);
+        response.send(`<h1>Hi numbers ${parseInt(number1) + parseInt(number2)}</h1>`);
+            </pre>
+    </div>
+  </body>
+</html>

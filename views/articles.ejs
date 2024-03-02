@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ALl Articles Page</title>
+  </head>
+  <body>
+    <h1>ALl Articles Page</h1>
+    <hr />
+    <div style="background: #ddd; color: black">
+      <% allArticles.forEach(e => { %> 
+        <h1><%= e.title  %><h1/>
+        <p><%= e.body  %></p>
+        <p><%= e.numberOfLikes  %></p>
+       <% }); %>
+    </div>
+  </body>
+</html>

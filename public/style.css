@@ -1,0 +1,12 @@
+div {
+  background-color: #ddd;
+  margin: 10px;
+  border: 1px solid #000;
+}
+h1 {
+  text-align: center;
+}
+div h4 {
+  background-color: #ccc;
+  padding: 10px;
+}
